@@ -1,0 +1,5 @@
+1. Avaliar arquiteturas 
+2. Avaliar a navegabilidade do espaço latente
+3. Avaliar clusterização
+4. tentar gerar dados usando o decoder.
+5. Avaliar se menor erro médio de certo modelo implica em melhor clusterização dos dados e melhor organização do espaço latente.
