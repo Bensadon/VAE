@@ -15,10 +15,11 @@ Implementação modular em PyTorch de um **Variational Autoencoder (VAE)** para 
 | **Tamanho do Lote** | `64` exemplos (fixo) |
 | **Otimizador** | `Adam` com hiperparâmetros configuráveis |
 | **Função de Custo** | $\mathcal{L} = \mathcal{L}_{\text{recon}} + \mathcal{L}_{\text{KL}}$ (Soma bruta dos erros quadráticos sobre os 784 pixels + Divergência KL analítica) |
+| **Pipeline de Dados** | Dataset 100% pré-carregado em **VRAM** (~210 MB alocados na GPU), eliminando transferências PCIe e gargalos de CPU |
 
 ---
 
-## 🎯 Objetivos do Projeto ([planejamento.txt](file:///home/bensa/Personal/Projects/RN/ProjVAE/planejamento.txt))
+## 🎯 Objetivos do Projeto ([plans/planejamento.txt](file:///home/bensa/Personal/Projects/RN/ProjVAE/plans/planejamento.txt))
 
 1. **Arquiteturas**: Comparar variações de camadas ocultas e funções de ativação.
 2. **Navegabilidade**: Avaliar transições contínuas via interpolação linear no espaço latente.
@@ -40,6 +41,9 @@ ProjVAE/
 ├── dataset/               # Dados binários IDX particionados (48k / 12k / 10k)
 │   └── raw/               # Arquivos brutos originais do MNIST
 ├── experiments/           # Saídas organizadas por timestamp_nome_experimento
+├── plans/                 # Planejamento científico e rodadas de experimentos
+│   ├── planejamento.txt   # Objetivos e hipóteses fundamentais
+│   └── round1.txt         # Especificações de arquiteturas e parâmetros para o Round 0
 ├── vae/                   # Pacote do VAE
 │   ├── config.py          # Configurações e validação de invariantes
 │   ├── dataset.py         # Leitor IDX e DataLoaders PyTorch
@@ -84,22 +88,29 @@ python verify_vae.py
 # Treino padrão (ReLU, latente=20)
 python train.py --config configs/default_config.json
 
+# Treino controlando por passos de gradiente (ex: 200k passos com saída em experiments/round0)
+python train.py --config configs/default_config.json --max_steps 200000 --output_dir experiments/round0
+
 # Treino com ativação Sigmoid ou Tanh
 python train.py --config configs/config_sigmoid.json
 python train.py --config configs/config_tanh.json
 
 # Treino com latente 8 e override de épocas e dispositivo
 python train.py --config configs/config_latent8.json --epochs 50 --device cuda
+# Estender/retomar um experimento a partir do último estado (last.pt)
+python train.py --resume experiments/round0/<pasta_do_experimento> --max_steps 500000
 ```
 
 ---
 
 ## 📊 Artefatos Produzidos
 
-A cada execução, uma pasta é criada em `experiments/<timestamp>_<experimento>/` contendo:
+A cada execução, uma pasta é criada em `experiments/<timestamp>_<experimento>/` (ou com nomenclatura estruturada `{arch}_{act}_lat{dim}_lr{lr}_seed{s}`) contendo:
 
-- **`config.json`**: Cópia exata dos parâmetros utilizados.
-- **`metrics.csv`**: Registro época a época de perdas (total, recon, KL) para treino, validação e teste.
-- **`loss_curve.png`**: Gráficos das curvas de aprendizado gerados a cada época.
+- **`config.json`**: Cópia exata dos parâmetros utilizados (suporta `epochs` e `max_steps`).
+- **`summary.json`**: Resumo final com status (`COMPLETED` ou `DIVERGED`), tempo médio por época, métricas da melhor época de validação e **perda de teste correspondente à época da melhor validação**.
+- **`metrics.csv`**: Registro época a época de perdas (total, recon, KL), passo de gradiente e tempo por época para treino, validação e teste.
+- **`loss_curve.png`**: Gráficos das curvas de aprendizado gerados periodicamente (`--plot_interval`) e na conclusão.
 - **`checkpoints/best_model.pt`**: Checkpoint do modelo e otimizador salvo no ponto de menor erro de validação.
-- **`reconstructions/`**: Imagens comparativas (Original vs Reconstruído) geradas a cada novo recorde na validação.
+- **`checkpoints/last.pt`**: Checkpoint do estado salvo a cada `--ckpt_interval` épocas e no fim para extensão/retomada via `--resume`.
+- **`reconstructions/`**: Imagens comparativas (Original vs Reconstruído) geradas no melhor modelo de validação.

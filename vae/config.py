@@ -7,6 +7,7 @@ parâmetros configuráveis via arquivo JSON.
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -37,7 +38,8 @@ class VAEConfig:
     latent_dim: int = 20
     activation: str = "relu"  # relu, sigmoid, tanh
     learning_rate: float = 0.001
-    epochs: int = 20
+    epochs: int = 267
+    max_steps: Optional[int] = None
     adam_params: AdamConfig = field(default_factory=AdamConfig)
     device: str = "auto"  # auto, cuda, cpu
     seed: int = 42
@@ -60,9 +62,12 @@ class VAEConfig:
             )
         self.activation = act_lower
 
-        # Validação do número de épocas
+        # Validação do número de épocas e max_steps
         if not isinstance(self.epochs, int) or self.epochs <= 0:
             raise ValueError(f"O número de épocas deve ser um inteiro positivo, recebido: {self.epochs}")
+        if self.max_steps is not None:
+            if not isinstance(self.max_steps, int) or self.max_steps <= 0:
+                raise ValueError(f"max_steps deve ser um inteiro positivo ou None, recebido: {self.max_steps}")
 
         # Validação da dimensão latente
         if not isinstance(self.latent_dim, int) or self.latent_dim <= 0:
@@ -130,13 +135,18 @@ def load_config(config_path: Path | str) -> VAEConfig:
     )
 
     # Criação da instância com parâmetros permitidos
+    max_steps_raw = data.get("max_steps", None)
+    max_steps_val = int(max_steps_raw) if max_steps_raw is not None else None
+    default_epochs = math.ceil(max_steps_val / 750) if max_steps_val is not None else 267
+
     return VAEConfig(
         experiment_name=str(data.get("experiment_name", "vae_experiment")),
         hidden_layers=[int(x) for x in data.get("hidden_layers", [512, 256])],
         latent_dim=int(data.get("latent_dim", 20)),
         activation=str(data.get("activation", "relu")),
         learning_rate=float(data.get("learning_rate", 0.001)),
-        epochs=int(data.get("epochs", 20)),
+        epochs=int(data.get("epochs", default_epochs)),
+        max_steps=max_steps_val,
         adam_params=adam_config,
         device=str(data.get("device", "auto")),
         seed=int(data.get("seed", 42)),

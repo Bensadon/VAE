@@ -1,18 +1,18 @@
 """
 Módulo de carregamento do dataset MNIST a partir dos arquivos binários IDX.
 Normaliza as imagens para o intervalo [0.0, 1.0] e configura os DataLoaders
-com o tamanho de lote rígido de 64 exemplos.
+com suporte a carregamento integral em VRAM (GPU) ou RAM (CPU).
 """
 
 from __future__ import annotations
 
 import struct
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, Iterator, Optional, Tuple
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import Dataset
 
 from vae.config import RIGID_BATCH_SIZE
 
@@ -63,6 +63,12 @@ class MNISTIDXDataset(Dataset):
         self.images = torch.from_numpy(images_flat)
         self.labels = torch.from_numpy(self.labels_raw.astype(np.int64))
 
+    def to(self, device: torch.device | str) -> MNISTIDXDataset:
+        """Move os tensores de imagens e rótulos para o dispositivo especificado (VRAM/CPU)."""
+        self.images = self.images.to(device)
+        self.labels = self.labels.to(device)
+        return self
+
     def __len__(self) -> int:
         return len(self.images)
 
@@ -70,15 +76,52 @@ class MNISTIDXDataset(Dataset):
         return self.images[idx], self.labels[idx]
 
 
+class VRAMDataLoader:
+    """
+    DataLoader de alta performance com dados 100% residentes em VRAM (GPU) ou RAM (CPU).
+    Elimina processos secundários de workers, filas IPC e transferências PCIe repetidas por época.
+    """
+
+    def __init__(
+        self,
+        images: torch.Tensor,
+        labels: torch.Tensor,
+        batch_size: int = RIGID_BATCH_SIZE,
+        shuffle: bool = False,
+    ):
+        self.images = images
+        self.labels = labels
+        self.batch_size = batch_size
+        self.shuffle = shuffle
+        self.num_samples = len(images)
+
+    def __len__(self) -> int:
+        return (self.num_samples + self.batch_size - 1) // self.batch_size
+
+    def __iter__(self) -> Iterator[Tuple[torch.Tensor, torch.Tensor]]:
+        if self.shuffle:
+            indices = torch.randperm(self.num_samples, device=self.images.device)
+            epoch_images = self.images.index_select(0, indices)
+            epoch_labels = self.labels.index_select(0, indices)
+        else:
+            epoch_images = self.images
+            epoch_labels = self.labels
+
+        for start_idx in range(0, self.num_samples, self.batch_size):
+            end_idx = start_idx + self.batch_size
+            yield epoch_images[start_idx:end_idx], epoch_labels[start_idx:end_idx]
+
+
 def get_dataloaders(
     dataset_dir: Path | str = "dataset",
     batch_size: int = RIGID_BATCH_SIZE,
-    num_workers: int = 2,
-    pin_memory: bool = True,
-) -> Tuple[DataLoader, DataLoader, DataLoader, Dict[str, MNISTIDXDataset]]:
+    device: Optional[torch.device | str] = None,
+    num_workers: int = 0,
+    pin_memory: bool = False,
+) -> Tuple[VRAMDataLoader, VRAMDataLoader, VRAMDataLoader, Dict[str, MNISTIDXDataset]]:
     """
     Cria DataLoaders de Treino, Validação e Teste a partir do diretório dataset/.
-    batch_size é estritamente rígido em 64 por especificação.
+    Se 'device' for informado, move os dados integralmente para a VRAM/dispositivo.
     """
     dataset_dir = Path(dataset_dir)
     train_img = dataset_dir / "train-images-idx3-ubyte"
@@ -96,31 +139,30 @@ def get_dataloaders(
     val_ds = MNISTIDXDataset(val_img, val_lbl)
     test_ds = MNISTIDXDataset(test_img, test_lbl)
 
-    train_loader = DataLoader(
-        train_ds,
+    if device is not None:
+        train_ds.to(device)
+        val_ds.to(device)
+        test_ds.to(device)
+
+    train_loader = VRAMDataLoader(
+        images=train_ds.images,
+        labels=train_ds.labels,
         batch_size=batch_size,
         shuffle=True,
-        num_workers=num_workers,
-        pin_memory=pin_memory,
-        drop_last=False,
     )
 
-    val_loader = DataLoader(
-        val_ds,
+    val_loader = VRAMDataLoader(
+        images=val_ds.images,
+        labels=val_ds.labels,
         batch_size=batch_size,
         shuffle=False,
-        num_workers=num_workers,
-        pin_memory=pin_memory,
-        drop_last=False,
     )
 
-    test_loader = DataLoader(
-        test_ds,
+    test_loader = VRAMDataLoader(
+        images=test_ds.images,
+        labels=test_ds.labels,
         batch_size=batch_size,
         shuffle=False,
-        num_workers=num_workers,
-        pin_memory=pin_memory,
-        drop_last=False,
     )
 
     datasets = {"train": train_ds, "val": val_ds, "test": test_ds}
@@ -137,7 +179,7 @@ def select_fixed_eval_samples(
     para visualização consistente da reconstrução ao longo das épocas.
     """
     rng = np.random.default_rng(seed)
-    labels = dataset.labels.numpy()
+    labels = dataset.labels.detach().cpu().numpy()
 
     selected_indices = []
     # Garante ao menos uma ocorrência de cada dígito de 0 a 9

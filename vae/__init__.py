@@ -15,6 +15,7 @@ from vae.config import (
 )
 from vae.dataset import (
     MNISTIDXDataset,
+    VRAMDataLoader,
     get_dataloaders,
     select_fixed_eval_samples,
 )
@@ -28,6 +29,7 @@ __all__ = [
     "load_config",
     "vae_loss_function",
     "MNISTIDXDataset",
+    "VRAMDataLoader",
     "get_dataloaders",
     "select_fixed_eval_samples",
     "RIGID_INPUT_DIM",
