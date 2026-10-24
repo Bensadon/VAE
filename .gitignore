@@ -1,0 +1,12 @@
+# Bytecode e caches do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pt
+*.pth
+*.pyc
+
+# Experimentos e planejamentos
+experiments/
+plans/
+planejamento.txt
