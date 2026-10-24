@@ -1,0 +1,104 @@
+[
+  {
+    "rank_category": "winner1_lat2_rede4",
+    "network": "rede4",
+    "latent_dim": 2,
+    "hidden_layers": [
+      512,
+      256,
+      98,
+      32
+    ],
+    "activation": "relu",
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "avg_val_loss": 23.7352,
+    "avg_recon_mse": 18.2005,
+    "avg_kl": 5.5348,
+    "best_seed_run": "rede4_layers4_relu_lat2_lr0.0001_seed24",
+    "best_val_loss": 23.6732,
+    "seeds_evaluated": [
+      42,
+      24
+    ]
+  },
+  {
+    "rank_category": "winner2_lat2_rede1",
+    "network": "rede1",
+    "latent_dim": 2,
+    "hidden_layers": [
+      512,
+      256,
+      128,
+      64,
+      32,
+      16,
+      8
+    ],
+    "activation": "relu",
+    "adam_betas": [
+      0.9,
+      0.99
+    ],
+    "avg_val_loss": 24.0456,
+    "avg_recon_mse": 18.513,
+    "avg_kl": 5.5326,
+    "best_seed_run": "rede1_layers7_relu_lat2_lr0.0001_seed24",
+    "best_val_loss": 24.0332,
+    "seeds_evaluated": [
+      42,
+      24
+    ]
+  },
+  {
+    "rank_category": "winner1_lat8_rede7",
+    "network": "rede7",
+    "latent_dim": 8,
+    "hidden_layers": [
+      256,
+      98,
+      32
+    ],
+    "activation": "relu",
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "avg_val_loss": 21.1886,
+    "avg_recon_mse": 14.1663,
+    "avg_kl": 7.0223,
+    "best_seed_run": "rede7_layers3_relu_lat8_lr0.0001_seed42",
+    "best_val_loss": 20.9624,
+    "seeds_evaluated": [
+      42,
+      24
+    ]
+  },
+  {
+    "rank_category": "winner2_lat8_rede8",
+    "network": "rede8",
+    "latent_dim": 8,
+    "hidden_layers": [
+      384,
+      192,
+      64,
+      16
+    ],
+    "activation": "relu",
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "avg_val_loss": 21.8082,
+    "avg_recon_mse": 15.1479,
+    "avg_kl": 6.6603,
+    "best_seed_run": "rede8_layers4_relu_lat8_lr0.0001_seed24",
+    "best_val_loss": 21.2682,
+    "seeds_evaluated": [
+      42,
+      24
+    ]
+  }
+]

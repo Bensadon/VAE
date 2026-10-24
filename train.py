@@ -80,12 +80,17 @@ def parse_arguments() -> argparse.Namespace:
         "--name",
         type=str,
         default=None,
-        help="Nome customizado da pasta do experimento. Se omitido, usa {arch}_{act}_lat{dim}_lr{lr}_seed{s}",
+        help="Nome customizado da pasta do experimento. Se omitido, usa layers{num}_{act}_lat{dim}_lr{lr}_seed{s}",
     )
     parser.add_argument(
         "--no_timestamp",
         action="store_true",
         help="Omite o timestamp numérico no nome da pasta de saída",
+    )
+    parser.add_argument(
+        "--with_timestamp",
+        action="store_true",
+        help="Força inclusão do timestamp numérico no nome da pasta de saída (mesmo para round0)",
     )
     parser.add_argument(
         "--plot_interval",
@@ -339,21 +344,25 @@ def main() -> None:
     if max_steps is not None and args.epochs is None:
         config.epochs = math.ceil(max_steps / steps_per_epoch)
 
-    # 3. Prepara diretório do experimento com nomenclatura estruturada (com arch, act, lat, lr e seed)
+    # 3. Prepara diretório do experimento com nomenclatura estruturada por número de camadas
     if resume_exp_dir is not None:
         exp_dir = resume_exp_dir
     else:
-        arch_str = "-".join(map(str, config.hidden_layers))
+        num_layers = len(config.hidden_layers)
         exp_prefix = (
             f"{config.experiment_name}_"
             if config.experiment_name and config.experiment_name not in ("vae_experiment", "vae_default")
             else ""
         )
-        default_name = f"{exp_prefix}arch_{arch_str}_{config.activation}_lat{config.latent_dim}_lr{config.learning_rate}_seed{config.seed}"
+        default_name = f"{exp_prefix}layers{num_layers}_{config.activation}_lat{config.latent_dim}_lr{config.learning_rate}_seed{config.seed}"
+
+        # Runs destinadas a rounds (ex: experiments/round0) não usam timestamp por padrão
+        is_round_dir = "round" in str(args.output_dir).lower()
+        use_timestamp = args.with_timestamp or (not args.no_timestamp and not is_round_dir)
 
         if args.name:
             folder_name = args.name
-        elif args.no_timestamp:
+        elif not use_timestamp:
             folder_name = default_name
         else:
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")

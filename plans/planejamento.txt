@@ -3,3 +3,5 @@
 3. Avaliar clusterização
 4. tentar gerar dados usando o decoder.
 5. Avaliar se menor erro médio de certo modelo implica em melhor clusterização dos dados e melhor organização do espaço latente.
+6. Traçar uma grade no espaço latente e amostrar de varios pontos, verificar regiões vazias, que nao codificaram informação.
+7. Plotar o gráficos de evoluçao do mapa em 3d. se um ponto (x,y) foi hitado z vezes, ele tem altura h, isso deve evidenciar regiões de mistura, regiões vazias e regiões de acumulo de rótulo.

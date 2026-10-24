@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETED",
+  "diverged": false,
+  "epochs_completed": 334,
+  "global_step": 250000,
+  "total_time_s": 288.082,
+  "avg_epoch_time_s": 0.8405,
+  "best_val": {
+    "epoch": 330,
+    "step": 247500,
+    "val_loss": 23.797283172607422,
+    "val_recon": 18.17894744873047,
+    "val_kl": 5.618334770202637,
+    "test_loss_at_best_val": 23.76399040222168,
+    "test_recon_at_best_val": 18.150146484375,
+    "test_kl_at_best_val": 5.613844394683838
+  },
+  "config": {
+    "experiment_name": "rede4",
+    "hidden_layers": [
+      512,
+      256,
+      98,
+      32
+    ],
+    "latent_dim": 2,
+    "activation": "relu",
+    "learning_rate": 0.0001,
+    "epochs": 334,
+    "max_steps": 250000,
+    "adam_params": {
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0
+    },
+    "device": "cuda",
+    "seed": 42,
+    "input_dim": 784,
+    "output_dim": 784,
+    "batch_size": 64,
+    "output_activation": "sigmoid",
+    "optimizer": "adam",
+    "loss_type": "mse_sum_plus_kl"
+  }
+}

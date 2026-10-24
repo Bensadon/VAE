@@ -1,0 +1,27 @@
+{
+  "experiment_name": "rede1_adam_b2_0999",
+  "hidden_layers": [
+    512,
+    256,
+    128,
+    64,
+    32,
+    16,
+    8
+  ],
+  "latent_dim": 2,
+  "activation": "relu",
+  "learning_rate": 0.0001,
+  "epochs": 667,
+  "max_steps": 500000,
+  "device": "cuda",
+  "seed": 42,
+  "adam_params": {
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0
+  }
+}

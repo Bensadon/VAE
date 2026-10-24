@@ -1,0 +1,121 @@
+======================================================================
+INICIANDO EXPERIMENTO VAE (ALTA PERFORMANCE VRAM)
+Diretório:                experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42
+Dispositivo:              cuda (NVIDIA GeForce RTX 3050 6GB Laptop GPU)
+Camadas Ocultas Encoder:  [512, 256, 128, 64, 32, 16, 8]
+Espaço Latente:           2
+Ativação Interna:         RELU
+Taxa de Aprendizado (LR): 0.001
+Semente Aleatória:        42
+Total de Épocas:          667 (Meta: 500000 passos)
+Passos por Época:         750 (Lotes de 64)
+Memória VRAM Dataset:     210.5 MB alocados (Treino + Val + Teste)
+======================================================================
+Época [0001/0667] Passo [000750] (0.83s) | Treino: 53.17 (MSE=51.28, KL=1.89) | Val: 40.62 (MSE=37.67, KL=2.95) | Teste: 40.66 ★ [MELHOR VAL]
+Época [0002/0667] Passo [001500] (0.76s) | Treino: 40.68 (MSE=37.94, KL=2.74) | Val: 38.22 (MSE=35.32, KL=2.91) | Teste: 38.21 ★ [MELHOR VAL]
+Época [0003/0667] Passo [002250] (0.75s) | Treino: 40.56 (MSE=37.66, KL=2.90) | Val: 38.20 (MSE=35.62, KL=2.58) | Teste: 38.23 ★ [MELHOR VAL]
+Época [0005/0667] Passo [003750] (0.78s) | Treino: 36.21 (MSE=31.36, KL=4.85) | Val: 31.94 (MSE=27.00, KL=4.94) | Teste: 31.87 ★ [MELHOR VAL]
+Época [0006/0667] Passo [004500] (0.77s) | Treino: 32.19 (MSE=27.13, KL=5.05) | Val: 30.84 (MSE=25.87, KL=4.97) | Teste: 30.77 ★ [MELHOR VAL]
+Época [0007/0667] Passo [005250] (0.78s) | Treino: 30.84 (MSE=25.96, KL=4.88) | Val: 29.22 (MSE=24.30, KL=4.92) | Teste: 29.14 ★ [MELHOR VAL]
+Época [0008/0667] Passo [006000] (0.80s) | Treino: 29.84 (MSE=25.03, KL=4.81) | Val: 28.35 (MSE=23.53, KL=4.82) | Teste: 28.22 ★ [MELHOR VAL]
+Época [0009/0667] Passo [006750] (0.80s) | Treino: 29.34 (MSE=24.55, KL=4.79) | Val: 27.96 (MSE=23.35, KL=4.61) | Teste: 27.85 ★ [MELHOR VAL]
+Época [0010/0667] Passo [007500] (0.79s) | Treino: 28.89 (MSE=24.08, KL=4.81) | Val: 27.77 (MSE=22.89, KL=4.88) | Teste: 27.60 ★ [MELHOR VAL]
+Época [0011/0667] Passo [008250] (0.81s) | Treino: 28.45 (MSE=23.63, KL=4.82) | Val: 27.17 (MSE=22.29, KL=4.88) | Teste: 27.02 ★ [MELHOR VAL]
+Época [0012/0667] Passo [009000] (0.81s) | Treino: 28.25 (MSE=23.41, KL=4.84) | Val: 27.17 (MSE=22.37, KL=4.80) | Teste: 26.99 ★ [MELHOR VAL]
+Época [0013/0667] Passo [009750] (0.81s) | Treino: 28.16 (MSE=23.31, KL=4.85) | Val: 27.04 (MSE=22.10, KL=4.94) | Teste: 26.88 ★ [MELHOR VAL]
+Época [0016/0667] Passo [012000] (0.83s) | Treino: 27.64 (MSE=22.72, KL=4.91) | Val: 26.81 (MSE=21.83, KL=4.97) | Teste: 26.52 ★ [MELHOR VAL]
+Época [0017/0667] Passo [012750] (0.82s) | Treino: 27.35 (MSE=22.41, KL=4.94) | Val: 26.28 (MSE=21.30, KL=4.98) | Teste: 26.09 ★ [MELHOR VAL]
+Época [0018/0667] Passo [013500] (0.81s) | Treino: 27.23 (MSE=22.27, KL=4.96) | Val: 26.20 (MSE=21.20, KL=5.00) | Teste: 26.06 ★ [MELHOR VAL]
+Época [0020/0667] Passo [015000] (0.82s) | Treino: 27.05 (MSE=22.06, KL=5.00) | Val: 26.23 (MSE=21.21, KL=5.02) | Teste: 26.02
+Época [0022/0667] Passo [016500] (0.85s) | Treino: 27.17 (MSE=22.14, KL=5.03) | Val: 26.18 (MSE=21.10, KL=5.08) | Teste: 26.01 ★ [MELHOR VAL]
+Época [0023/0667] Passo [017250] (0.81s) | Treino: 26.96 (MSE=21.92, KL=5.04) | Val: 25.75 (MSE=20.75, KL=5.00) | Teste: 25.56 ★ [MELHOR VAL]
+Época [0027/0667] Passo [020250] (0.83s) | Treino: 26.56 (MSE=21.45, KL=5.12) | Val: 25.61 (MSE=20.49, KL=5.12) | Teste: 25.52 ★ [MELHOR VAL]
+Época [0029/0667] Passo [021750] (0.85s) | Treino: 26.51 (MSE=21.38, KL=5.14) | Val: 25.52 (MSE=20.37, KL=5.15) | Teste: 25.39 ★ [MELHOR VAL]
+Época [0030/0667] Passo [022500] (0.85s) | Treino: 26.44 (MSE=21.29, KL=5.15) | Val: 25.45 (MSE=20.27, KL=5.18) | Teste: 25.33 ★ [MELHOR VAL]
+Época [0031/0667] Passo [023250] (0.83s) | Treino: 26.33 (MSE=21.16, KL=5.17) | Val: 25.37 (MSE=20.23, KL=5.14) | Teste: 25.25 ★ [MELHOR VAL]
+Época [0039/0667] Passo [029250] (0.86s) | Treino: 26.22 (MSE=21.00, KL=5.22) | Val: 25.29 (MSE=20.17, KL=5.11) | Teste: 25.19 ★ [MELHOR VAL]
+Época [0040/0667] Passo [030000] (0.85s) | Treino: 26.10 (MSE=20.88, KL=5.22) | Val: 25.57 (MSE=20.32, KL=5.25) | Teste: 25.48
+Época [0043/0667] Passo [032250] (0.86s) | Treino: 26.08 (MSE=20.85, KL=5.23) | Val: 25.27 (MSE=20.04, KL=5.22) | Teste: 25.16 ★ [MELHOR VAL]
+Época [0045/0667] Passo [033750] (0.87s) | Treino: 26.03 (MSE=20.77, KL=5.26) | Val: 25.07 (MSE=19.77, KL=5.29) | Teste: 24.94 ★ [MELHOR VAL]
+Época [0048/0667] Passo [036000] (0.87s) | Treino: 26.22 (MSE=20.98, KL=5.25) | Val: 24.96 (MSE=19.77, KL=5.19) | Teste: 24.84 ★ [MELHOR VAL]
+Época [0050/0667] Passo [037500] (0.87s) | Treino: 26.07 (MSE=20.80, KL=5.26) | Val: 24.99 (MSE=19.71, KL=5.28) | Teste: 24.89
+Época [0059/0667] Passo [044250] (0.88s) | Treino: 25.73 (MSE=20.40, KL=5.32) | Val: 24.74 (MSE=19.46, KL=5.28) | Teste: 24.59 ★ [MELHOR VAL]
+Época [0060/0667] Passo [045000] (0.87s) | Treino: 26.13 (MSE=20.83, KL=5.31) | Val: 25.29 (MSE=20.02, KL=5.27) | Teste: 25.14
+Época [0070/0667] Passo [052500] (0.89s) | Treino: 25.76 (MSE=20.41, KL=5.36) | Val: 24.89 (MSE=19.57, KL=5.32) | Teste: 24.83
+Época [0080/0667] Passo [060000] (0.91s) | Treino: 26.89 (MSE=21.56, KL=5.32) | Val: 25.80 (MSE=20.57, KL=5.24) | Teste: 25.64
+Época [0083/0667] Passo [062250] (0.91s) | Treino: 25.74 (MSE=20.36, KL=5.38) | Val: 24.72 (MSE=19.45, KL=5.27) | Teste: 24.65 ★ [MELHOR VAL]
+Época [0090/0667] Passo [067500] (0.91s) | Treino: 32.14 (MSE=26.70, KL=5.44) | Val: 30.49 (MSE=25.12, KL=5.37) | Teste: 30.25
+Época [0100/0667] Passo [075000] (0.91s) | Treino: 26.40 (MSE=21.07, KL=5.33) | Val: 25.67 (MSE=20.48, KL=5.19) | Teste: 25.53
+Época [0110/0667] Passo [082500] (0.91s) | Treino: 26.33 (MSE=20.98, KL=5.34) | Val: 25.25 (MSE=19.99, KL=5.26) | Teste: 25.13
+Época [0120/0667] Passo [090000] (0.91s) | Treino: 26.26 (MSE=20.86, KL=5.41) | Val: 25.31 (MSE=19.95, KL=5.36) | Teste: 25.21
+Época [0130/0667] Passo [097500] (0.91s) | Treino: 26.58 (MSE=21.24, KL=5.33) | Val: 25.47 (MSE=20.16, KL=5.31) | Teste: 25.28
+Época [0140/0667] Passo [105000] (0.91s) | Treino: 29.36 (MSE=24.00, KL=5.36) | Val: 27.49 (MSE=22.23, KL=5.26) | Teste: 27.38
+Época [0150/0667] Passo [112500] (0.92s) | Treino: 29.02 (MSE=23.62, KL=5.40) | Val: 27.08 (MSE=21.65, KL=5.43) | Teste: 26.94
+Época [0160/0667] Passo [120000] (1.00s) | Treino: 26.38 (MSE=21.04, KL=5.33) | Val: 25.55 (MSE=20.17, KL=5.38) | Teste: 25.45
+Época [0170/0667] Passo [127500] (0.92s) | Treino: 26.01 (MSE=20.64, KL=5.37) | Val: 25.46 (MSE=20.07, KL=5.39) | Teste: 25.36
+Época [0180/0667] Passo [135000] (0.92s) | Treino: 26.30 (MSE=20.91, KL=5.39) | Val: 25.19 (MSE=19.72, KL=5.47) | Teste: 25.10
+Época [0190/0667] Passo [142500] (0.91s) | Treino: 27.73 (MSE=22.22, KL=5.51) | Val: 26.92 (MSE=21.40, KL=5.52) | Teste: 26.86
+Época [0200/0667] Passo [150000] (0.96s) | Treino: 28.25 (MSE=23.12, KL=5.14) | Val: 26.91 (MSE=21.78, KL=5.12) | Teste: 26.94
+Época [0210/0667] Passo [157500] (1.00s) | Treino: 27.35 (MSE=22.14, KL=5.20) | Val: 26.07 (MSE=20.87, KL=5.20) | Teste: 26.09
+Época [0220/0667] Passo [165000] (0.91s) | Treino: 26.89 (MSE=21.62, KL=5.26) | Val: 26.08 (MSE=20.92, KL=5.16) | Teste: 26.07
+Época [0230/0667] Passo [172500] (0.92s) | Treino: 26.18 (MSE=20.85, KL=5.33) | Val: 25.33 (MSE=19.98, KL=5.35) | Teste: 25.35
+Época [0240/0667] Passo [180000] (0.99s) | Treino: 26.14 (MSE=20.81, KL=5.33) | Val: 25.27 (MSE=20.00, KL=5.27) | Teste: 25.20
+Época [0250/0667] Passo [187500] (0.94s) | Treino: 25.99 (MSE=20.62, KL=5.37) | Val: 25.47 (MSE=20.14, KL=5.33) | Teste: 25.35
+Época [0260/0667] Passo [195000] (0.96s) | Treino: 25.86 (MSE=20.45, KL=5.41) | Val: 25.41 (MSE=20.13, KL=5.28) | Teste: 25.29
+Época [0270/0667] Passo [202500] (1.07s) | Treino: 27.22 (MSE=21.88, KL=5.34) | Val: 26.09 (MSE=20.68, KL=5.41) | Teste: 26.08
+Época [0280/0667] Passo [210000] (1.08s) | Treino: 26.45 (MSE=21.05, KL=5.39) | Val: 25.85 (MSE=20.42, KL=5.43) | Teste: 25.78
+Época [0290/0667] Passo [217500] (0.91s) | Treino: 27.15 (MSE=21.91, KL=5.24) | Val: 26.73 (MSE=21.54, KL=5.19) | Teste: 26.59
+Época [0300/0667] Passo [225000] (1.01s) | Treino: 28.38 (MSE=23.07, KL=5.31) | Val: 27.97 (MSE=22.68, KL=5.30) | Teste: 27.83
+Época [0310/0667] Passo [232500] (0.91s) | Treino: 27.99 (MSE=22.89, KL=5.10) | Val: 27.14 (MSE=22.08, KL=5.06) | Teste: 27.01
+Época [0320/0667] Passo [240000] (1.10s) | Treino: 27.69 (MSE=22.62, KL=5.06) | Val: 26.91 (MSE=21.85, KL=5.06) | Teste: 26.85
+Época [0330/0667] Passo [247500] (1.08s) | Treino: 27.04 (MSE=21.92, KL=5.12) | Val: 25.91 (MSE=20.81, KL=5.10) | Teste: 25.81
+Época [0340/0667] Passo [255000] (0.92s) | Treino: 26.99 (MSE=21.78, KL=5.21) | Val: 26.25 (MSE=21.05, KL=5.21) | Teste: 26.10
+Época [0350/0667] Passo [262500] (1.03s) | Treino: 26.61 (MSE=21.35, KL=5.25) | Val: 25.49 (MSE=20.35, KL=5.14) | Teste: 25.41
+Época [0360/0667] Passo [270000] (1.00s) | Treino: 26.65 (MSE=21.41, KL=5.24) | Val: 25.89 (MSE=20.60, KL=5.29) | Teste: 25.82
+Época [0370/0667] Passo [277500] (1.00s) | Treino: 26.30 (MSE=21.02, KL=5.27) | Val: 25.68 (MSE=20.41, KL=5.27) | Teste: 25.55
+Época [0380/0667] Passo [285000] (1.08s) | Treino: 26.34 (MSE=21.05, KL=5.29) | Val: 25.71 (MSE=20.43, KL=5.28) | Teste: 25.57
+Época [0390/0667] Passo [292500] (0.92s) | Treino: 26.91 (MSE=21.62, KL=5.29) | Val: 25.95 (MSE=20.60, KL=5.35) | Teste: 25.80
+Época [0400/0667] Passo [300000] (0.99s) | Treino: 27.50 (MSE=22.17, KL=5.33) | Val: 26.81 (MSE=21.54, KL=5.27) | Teste: 26.69
+Época [0410/0667] Passo [307500] (0.91s) | Treino: 26.48 (MSE=21.17, KL=5.31) | Val: 25.49 (MSE=20.14, KL=5.34) | Teste: 25.26
+Época [0420/0667] Passo [315000] (1.01s) | Treino: 26.24 (MSE=20.87, KL=5.37) | Val: 25.69 (MSE=20.27, KL=5.42) | Teste: 25.49
+Época [0430/0667] Passo [322500] (1.08s) | Treino: 26.41 (MSE=21.03, KL=5.38) | Val: 26.56 (MSE=21.13, KL=5.42) | Teste: 26.43
+Época [0440/0667] Passo [330000] (1.03s) | Treino: 30.00 (MSE=24.73, KL=5.27) | Val: 29.12 (MSE=23.91, KL=5.20) | Teste: 28.99
+Época [0450/0667] Passo [337500] (1.07s) | Treino: 28.58 (MSE=23.40, KL=5.18) | Val: 27.83 (MSE=22.64, KL=5.19) | Teste: 27.62
+Época [0460/0667] Passo [345000] (1.07s) | Treino: 27.32 (MSE=22.10, KL=5.23) | Val: 27.17 (MSE=22.00, KL=5.18) | Teste: 27.05
+Época [0470/0667] Passo [352500] (1.02s) | Treino: 27.35 (MSE=22.08, KL=5.27) | Val: 26.56 (MSE=21.24, KL=5.32) | Teste: 26.50
+Época [0480/0667] Passo [360000] (1.03s) | Treino: 28.32 (MSE=23.02, KL=5.30) | Val: 27.25 (MSE=22.03, KL=5.22) | Teste: 27.01
+Época [0490/0667] Passo [367500] (0.99s) | Treino: 28.93 (MSE=23.51, KL=5.42) | Val: 27.71 (MSE=22.26, KL=5.45) | Teste: 27.59
+Época [0500/0667] Passo [375000] (0.97s) | Treino: 27.85 (MSE=22.51, KL=5.34) | Val: 27.80 (MSE=22.41, KL=5.38) | Teste: 27.82
+Época [0510/0667] Passo [382500] (0.95s) | Treino: 27.24 (MSE=21.86, KL=5.38) | Val: 26.01 (MSE=20.64, KL=5.37) | Teste: 25.91
+Época [0520/0667] Passo [390000] (0.91s) | Treino: 27.45 (MSE=22.23, KL=5.22) | Val: 28.09 (MSE=22.74, KL=5.35) | Teste: 28.05
+Época [0530/0667] Passo [397500] (0.92s) | Treino: 27.31 (MSE=22.00, KL=5.31) | Val: 26.06 (MSE=20.80, KL=5.25) | Teste: 25.93
+Época [0540/0667] Passo [405000] (0.99s) | Treino: 26.98 (MSE=21.71, KL=5.27) | Val: 26.11 (MSE=20.85, KL=5.26) | Teste: 25.93
+Época [0550/0667] Passo [412500] (1.11s) | Treino: 26.91 (MSE=21.63, KL=5.28) | Val: 26.57 (MSE=21.24, KL=5.33) | Teste: 26.40
+Época [0560/0667] Passo [420000] (0.91s) | Treino: 29.99 (MSE=24.60, KL=5.40) | Val: 31.05 (MSE=25.83, KL=5.22) | Teste: 30.89
+Época [0570/0667] Passo [427500] (1.01s) | Treino: 27.37 (MSE=22.09, KL=5.27) | Val: 26.56 (MSE=21.36, KL=5.21) | Teste: 26.55
+Época [0580/0667] Passo [435000] (0.96s) | Treino: 26.64 (MSE=21.34, KL=5.30) | Val: 25.66 (MSE=20.38, KL=5.29) | Teste: 25.60
+Época [0590/0667] Passo [442500] (1.10s) | Treino: 27.00 (MSE=21.56, KL=5.44) | Val: 26.90 (MSE=21.38, KL=5.52) | Teste: 26.81
+Época [0600/0667] Passo [450000] (1.00s) | Treino: 27.10 (MSE=21.68, KL=5.42) | Val: 26.18 (MSE=20.77, KL=5.41) | Teste: 26.12
+Época [0610/0667] Passo [457500] (1.00s) | Treino: 26.67 (MSE=21.27, KL=5.40) | Val: 25.69 (MSE=20.37, KL=5.32) | Teste: 25.56
+Época [0620/0667] Passo [465000] (1.00s) | Treino: 26.52 (MSE=21.18, KL=5.34) | Val: 25.55 (MSE=20.20, KL=5.35) | Teste: 25.53
+Época [0630/0667] Passo [472500] (1.17s) | Treino: 26.94 (MSE=21.50, KL=5.44) | Val: 27.37 (MSE=21.88, KL=5.48) | Teste: 27.19
+Época [0640/0667] Passo [480000] (1.09s) | Treino: 27.06 (MSE=21.66, KL=5.40) | Val: 26.48 (MSE=21.06, KL=5.42) | Teste: 26.26
+Época [0650/0667] Passo [487500] (0.93s) | Treino: 26.56 (MSE=21.18, KL=5.38) | Val: 26.67 (MSE=21.16, KL=5.51) | Teste: 26.53
+Época [0660/0667] Passo [495000] (1.03s) | Treino: 27.38 (MSE=22.00, KL=5.38) | Val: 27.04 (MSE=21.67, KL=5.37) | Teste: 26.92
+Época [0667/0667] Passo [500000] (0.62s) | Treino: 27.82 (MSE=22.48, KL=5.34) | Val: 26.99 (MSE=21.58, KL=5.40) | Teste: 26.80
+
+Meta de passos atingida: 500000/500000 passos concluídos.
+
+======================================================================
+TREINAMENTO CONCLUÍDO COM SUCESSO!
+Melhor Época (por Val):    83 (Passo 62250)
+Métricas Melhor Validação: Total = 24.72 (MSE = 19.45, KL = 5.27)
+Teste na Melhor Validação: Total = 24.65 (MSE = 19.38, KL = 5.27)
+Passos Totais Executados:  500000
+Tempo Médio por Época:     0.971s (Total: 678.24s)
+Checkpoint Melhor Modelo:  experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42/checkpoints/best_model.pt
+Checkpoint Último Estado:  experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42/checkpoints/last.pt
+Resumo Estruturado:        experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42/summary.json
+Curvas de Perda Salvas:    experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42/loss_curve.png
+Histórico CSV:             experiments/round0/rede1_layers7_relu_lat2_lr0.001_seed42/metrics.csv
+======================================================================

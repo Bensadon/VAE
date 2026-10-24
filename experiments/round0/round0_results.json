@@ -1,0 +1,434 @@
+{
+  "timestamp": "2026-10-24 02:20:40",
+  "learning_rate": 0.0001,
+  "max_steps": 250000,
+  "top3_lat2": [
+    {
+      "net_id": 4,
+      "name": "rede4",
+      "hidden_layers": [
+        512,
+        256,
+        98,
+        32
+      ],
+      "num_layers": 4,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 23.797283172607422,
+      "val_seed24": 23.673154830932617,
+      "avg_score": 23.73521900177002
+    },
+    {
+      "net_id": 1,
+      "name": "rede1",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 7,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.058053970336914,
+      "val_seed24": 24.033153533935547,
+      "avg_score": 24.04560375213623
+    },
+    {
+      "net_id": 2,
+      "name": "rede2",
+      "hidden_layers": [
+        392,
+        196,
+        98,
+        46,
+        22,
+        8
+      ],
+      "num_layers": 6,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.413299560546875,
+      "val_seed24": 26.849016189575195,
+      "avg_score": 25.631157875061035
+    }
+  ],
+  "top3_lat8": [
+    {
+      "net_id": 7,
+      "name": "rede7",
+      "hidden_layers": [
+        256,
+        98,
+        32
+      ],
+      "num_layers": 3,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 20.962387084960938,
+      "val_seed24": 21.414817810058594,
+      "avg_score": 21.188602447509766
+    },
+    {
+      "net_id": 8,
+      "name": "rede8",
+      "hidden_layers": [
+        384,
+        192,
+        64,
+        16
+      ],
+      "num_layers": 4,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 22.348182678222656,
+      "val_seed24": 21.268205642700195,
+      "avg_score": 21.808194160461426
+    },
+    {
+      "net_id": 5,
+      "name": "rede5",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16
+      ],
+      "num_layers": 6,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.225183486938477,
+      "val_seed24": 23.91964340209961,
+      "avg_score": 24.072413444519043
+    }
+  ],
+  "all_models": [
+    {
+      "net_id": 7,
+      "name": "rede7",
+      "hidden_layers": [
+        256,
+        98,
+        32
+      ],
+      "num_layers": 3,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 20.962387084960938,
+      "val_seed24": 21.414817810058594,
+      "avg_score": 21.188602447509766
+    },
+    {
+      "net_id": 8,
+      "name": "rede8",
+      "hidden_layers": [
+        384,
+        192,
+        64,
+        16
+      ],
+      "num_layers": 4,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 22.348182678222656,
+      "val_seed24": 21.268205642700195,
+      "avg_score": 21.808194160461426
+    },
+    {
+      "net_id": 4,
+      "name": "rede4",
+      "hidden_layers": [
+        512,
+        256,
+        98,
+        32
+      ],
+      "num_layers": 4,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.999,
+      "val_seed42": 23.797283172607422,
+      "val_seed24": 23.673154830932617,
+      "avg_score": 23.73521900177002
+    },
+    {
+      "net_id": 1,
+      "name": "rede1",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 7,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.058053970336914,
+      "val_seed24": 24.033153533935547,
+      "avg_score": 24.04560375213623
+    },
+    {
+      "net_id": 5,
+      "name": "rede5",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16
+      ],
+      "num_layers": 6,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.225183486938477,
+      "val_seed24": 23.91964340209961,
+      "avg_score": 24.072413444519043
+    },
+    {
+      "net_id": 2,
+      "name": "rede2",
+      "hidden_layers": [
+        392,
+        196,
+        98,
+        46,
+        22,
+        8
+      ],
+      "num_layers": 6,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.413299560546875,
+      "val_seed24": 26.849016189575195,
+      "avg_score": 25.631157875061035
+    },
+    {
+      "net_id": 1,
+      "name": "rede1",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 7,
+      "latent_dim": 2,
+      "activation": "tanh",
+      "beta2": 0.99,
+      "val_seed42": 28.736862182617188,
+      "val_seed24": 24.481840133666992,
+      "avg_score": 26.60935115814209
+    },
+    {
+      "net_id": 6,
+      "name": "rede6",
+      "hidden_layers": [
+        648,
+        512,
+        384,
+        256,
+        192,
+        128,
+        98,
+        64,
+        32,
+        16
+      ],
+      "num_layers": 10,
+      "latent_dim": 8,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.46883773803711,
+      "val_seed24": 30.338462829589844,
+      "avg_score": 27.403650283813477
+    },
+    {
+      "net_id": 3,
+      "name": "rede3",
+      "hidden_layers": [
+        648,
+        512,
+        384,
+        256,
+        192,
+        128,
+        98,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 11,
+      "latent_dim": 2,
+      "activation": "relu",
+      "beta2": 0.99,
+      "val_seed42": 24.90172004699707,
+      "val_seed24": 30.23715591430664,
+      "avg_score": 27.569437980651855
+    },
+    {
+      "net_id": 4,
+      "name": "rede4",
+      "hidden_layers": [
+        512,
+        256,
+        98,
+        32
+      ],
+      "num_layers": 4,
+      "latent_dim": 2,
+      "activation": "tanh",
+      "beta2": 0.999,
+      "val_seed42": 28.313722610473633,
+      "val_seed24": 27.757705688476562,
+      "avg_score": 28.035714149475098
+    },
+    {
+      "net_id": 2,
+      "name": "rede2",
+      "hidden_layers": [
+        392,
+        196,
+        98,
+        46,
+        22,
+        8
+      ],
+      "num_layers": 6,
+      "latent_dim": 2,
+      "activation": "tanh",
+      "beta2": 0.99,
+      "val_seed42": 28.92278480529785,
+      "val_seed24": 29.163330078125,
+      "avg_score": 29.043057441711426
+    },
+    {
+      "net_id": 4,
+      "name": "rede4",
+      "hidden_layers": [
+        512,
+        256,
+        98,
+        32
+      ],
+      "num_layers": 4,
+      "latent_dim": 2,
+      "activation": "sigmoid",
+      "beta2": 0.999,
+      "val_seed42": 29.221965789794922,
+      "val_seed24": 29.357715606689453,
+      "avg_score": 29.289840698242188
+    },
+    {
+      "net_id": 3,
+      "name": "rede3",
+      "hidden_layers": [
+        648,
+        512,
+        384,
+        256,
+        192,
+        128,
+        98,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 11,
+      "latent_dim": 2,
+      "activation": "tanh",
+      "beta2": 0.99,
+      "val_seed42": 29.707382202148438,
+      "val_seed24": 28.982221603393555,
+      "avg_score": 29.344801902770996
+    },
+    {
+      "net_id": 2,
+      "name": "rede2",
+      "hidden_layers": [
+        392,
+        196,
+        98,
+        46,
+        22,
+        8
+      ],
+      "num_layers": 6,
+      "latent_dim": 2,
+      "activation": "sigmoid",
+      "beta2": 0.99,
+      "val_seed42": 68.16466522216797,
+      "val_seed24": 68.16404724121094,
+      "avg_score": 68.16435623168945
+    },
+    {
+      "net_id": 1,
+      "name": "rede1",
+      "hidden_layers": [
+        512,
+        256,
+        128,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 7,
+      "latent_dim": 2,
+      "activation": "sigmoid",
+      "beta2": 0.99,
+      "val_seed42": 68.16503143310547,
+      "val_seed24": 68.16424560546875,
+      "avg_score": 68.16463851928711
+    },
+    {
+      "net_id": 3,
+      "name": "rede3",
+      "hidden_layers": [
+        648,
+        512,
+        384,
+        256,
+        192,
+        128,
+        98,
+        64,
+        32,
+        16,
+        8
+      ],
+      "num_layers": 11,
+      "latent_dim": 2,
+      "activation": "sigmoid",
+      "beta2": 0.99,
+      "val_seed42": 68.16610717773438,
+      "val_seed24": 68.16563415527344,
+      "avg_score": 68.1658706665039
+    }
+  ]
+}
